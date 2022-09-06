@@ -25,7 +25,7 @@ class RecoverAccountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentRecoverAccountBinding.inflate(inflater,container, false)
+        _binding = FragmentRecoverAccountBinding.inflate(layoutInflater,container, false)
         return binding.root
     }
 
@@ -45,12 +45,11 @@ class RecoverAccountFragment : Fragment() {
 
     //Função valida dados Confere os se os campos foram preenchidos
     private fun validaData() {
-        val email = binding.edtEmailRecover.text.toString().trim()
+        val email = binding.edtEmail.text.toString().trim()
         // verificação se foi digitado algo no campo
         if (email.isNotEmpty()) {
             // após verificação exibir progressBar
             binding.progressBar.isVisible = true
-
             // após o progressBar chamar função registerUser
             recoverAccountUser(email)
         } else {
@@ -66,11 +65,8 @@ class RecoverAccountFragment : Fragment() {
                 if (task.isSuccessful) {
                     Toast.makeText(requireContext(), "Link enviado ao seu o seu e-mail informado ", Toast.LENGTH_SHORT).show()
                     //se não mostre a progressbar
-                    binding.progressBar.isVisible = false
-                } else {
-                    //se não mostre a progressbar
-                    binding.progressBar.isVisible = false
                 }
+                binding.progressBar.isVisible = false
             }
     }
 
