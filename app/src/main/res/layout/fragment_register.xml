@@ -56,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/bg_edit"
+                android:inputType="textEmailAddress"
                 android:hint="email@exemplo.com"
                 android:padding="14dp"
                 android:textSize="14sp" />
@@ -73,6 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/bg_edit"
+                android:inputType="textPassword"
                 android:hint="*********"
                 android:padding="14dp"
                 android:textSize="14sp" />
