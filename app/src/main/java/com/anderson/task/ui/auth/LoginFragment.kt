@@ -1,6 +1,8 @@
 package com.anderson.task.ui.auth
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.anderson.task.R
 import com.anderson.task.databinding.FragmentLoginBinding
+import com.anderson.task.helper.FirebaseHelper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -26,7 +29,7 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         //Configuração do viewbinding / Inflate the layout for this fragment
-        _binding = FragmentLoginBinding.inflate(inflater,container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -40,7 +43,7 @@ class LoginFragment : Fragment() {
     }
 
     //Função para ouvir os enventos de clicks
-    private fun initClicks(){
+    private fun initClicks() {
         //botão de Login recebendo o metodo de validação
         binding.btnLogin.setOnClickListener { validaData() }
 
@@ -85,6 +88,12 @@ class LoginFragment : Fragment() {
                     //se criação ok direcionar para homeFragment
                     findNavController().navigate(R.id.action_global_homeFragment)
                 } else {
+                    //retorna a mensagem de erro
+                    Toast.makeText(
+                        requireContext(),
+                        FirebaseHelper.validError(task.exception?.message ?: ""),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     //se não mostre a progressbar
                     binding.progressBar.isVisible = false
                 }
@@ -95,4 +104,4 @@ class LoginFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
- }
+}
