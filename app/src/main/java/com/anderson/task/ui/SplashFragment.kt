@@ -10,11 +10,16 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.anderson.task.R
 import com.anderson.task.databinding.FragmentSplashBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class SplashFragment : Fragment() {
 
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +38,16 @@ class SplashFragment : Fragment() {
 
     //Método que check se usuário está logado
     private fun checkAuth(){
-        //navegação da Splash para tela de login(action_splashFragment_to_loginFragment) e o id da ação criada entre a splash e o login
-        findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+        // Initialize Firebase Auth
+        auth = Firebase.auth
+        //verificar se usuário está logado
+        if (auth.currentUser == null) {
+            //se auth.currentUser for nulo (action_splashFragment_to_authentication) então levara para tela de login
+            findNavController().navigate(R.id.action_splashFragment_to_authentication)
+        }else{
+            // se auth.currentUser for diferente de nulo (action_splashFragment_to_homeFragment) então levar para tela Home
+            findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+        }
     }
 
     override fun onDestroyView() {
