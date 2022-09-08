@@ -23,4 +23,12 @@
     <string name="email_in_use_register_fragment">O endereço de e-mail já está sendo usado por outra conta</string>
     <string name="strong_password_register_fragment">A senha fornecida é inválida. [ A senha deve ter pelo menos 6 caracteres ]</string>
 
+    <!--Form Task Fragment-->
+    <string name="text_title_form_task_fragment">Nova tarefa </string>
+    <string name="text_task_form_fragment">Tarefa</string>
+    <string name="text_status_form_fragment">Status</string>
+    <string name="text_btn_save_task_form_fragment">Salvar</string>
+
+
+
 </resources>
