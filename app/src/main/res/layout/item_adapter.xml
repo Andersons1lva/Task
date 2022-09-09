@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:layout_marginVertical="8dp"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/editTextTitle"
+                android:id="@+id/textDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -45,12 +45,12 @@
                 android:paddingVertical="6dp"
                 android:background="@drawable/bg_task"
                 android:text="Remover"
-                app:layout_constraintBottom_toBottomOf="@+id/bntEdit"
-                app:layout_constraintEnd_toStartOf="@+id/bntEdit"
+                app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
+                app:layout_constraintEnd_toStartOf="@+id/btnEdit"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/bntEdit"/>
+                app:layout_constraintTop_toTopOf="@+id/btnEdit"/>
 
             <TextView
                 android:id="@+id/btnEdit"
@@ -69,7 +69,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/btnDetails"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/btnDelete"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTitle"/>
+                app:layout_constraintTop_toBottomOf="@+id/textDescription"/>
 
             <TextView
                 android:id="@+id/btnDetails"
@@ -82,11 +82,11 @@
                 android:backgroundTint="@color/color_details"
                 android:background="@drawable/bg_task"
                 android:text="Detalhes"
-                app:layout_constraintBottom_toBottomOf="@+id/bntEdit"
+                app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/bntEdit"
-                app:layout_constraintTop_toTopOf="@+id/bntEdit" />
+                app:layout_constraintStart_toEndOf="@+id/btnEdit"
+                app:layout_constraintTop_toTopOf="@+id/btnEdit" />
 
             <ImageButton
                 android:id="@+id/ibBack"
@@ -95,9 +95,9 @@
                 android:layout_marginStart="16dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_back"
-                app:layout_constraintBottom_toBottomOf="@+id/bntEdit"
+                app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/bntEdit"
+                app:layout_constraintTop_toTopOf="@+id/btnEdit"
                 tools:tint="@color/color_default" />
 
             <ImageButton
@@ -107,9 +107,9 @@
                 android:layout_marginEnd="16dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_next"
-                app:layout_constraintBottom_toBottomOf="@+id/bntEdit"
+                app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/bntEdit"
+                app:layout_constraintTop_toTopOf="@+id/btnEdit"
                 tools:tint="@color/color_default" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
