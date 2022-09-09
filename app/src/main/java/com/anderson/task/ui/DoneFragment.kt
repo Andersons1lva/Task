@@ -78,10 +78,31 @@ class DoneFragment : Fragment() {
     private fun initAdapter(){
         binding.rvTask.layoutManager = LinearLayoutManager(requireContext())
         binding.rvTask.setHasFixedSize(true)
-        taskAdapter = TaskAdapter(requireContext(), taskList){ task, int ->
-
+        taskAdapter = TaskAdapter(requireContext(), taskList){ task, select ->
+            optionSelect(task,select)
         }
         binding.rvTask.adapter = taskAdapter
+    }
+
+    // captura o click no botão Remove
+    private fun optionSelect(task: Task, select: Int){
+        when(select){
+            TaskAdapter.SELECT_REMOVE -> {
+                deleteTask(task)
+            }
+        }
+    }
+    //deleta tarefa do bonco de dado
+    private fun deleteTask(task: Task){
+        FirebaseHelper
+            .getDataBase()
+            .child("task")
+            .child(FirebaseHelper.getIdUser() ?: "")
+            .child(task.id)
+            .removeValue()
+
+        taskList.remove(task)
+        taskAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {

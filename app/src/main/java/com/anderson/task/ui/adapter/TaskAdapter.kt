@@ -40,7 +40,7 @@ class TaskAdapter(
 
         //Evento de clicks dos botões
         holder.binding.btnDelete.setOnClickListener { taskSelected(task,SELECT_REMOVE) }
-        holder.binding.btnDelete.setOnClickListener { taskSelected(task, SELECT_DETAILS) }
+        holder.binding.btnDetails.setOnClickListener { taskSelected(task, SELECT_DETAILS) }
         holder.binding.btnEdit.setOnClickListener { taskSelected(task, SELECT_EDIT) }
 
         //monitoramento do status
