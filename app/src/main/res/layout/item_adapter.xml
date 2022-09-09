@@ -53,7 +53,7 @@
                 app:layout_constraintTop_toTopOf="@+id/bntEdit"/>
 
             <TextView
-                android:id="@+id/bntEdit"
+                android:id="@+id/btnEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_task"
@@ -101,7 +101,7 @@
                 tools:tint="@color/color_default" />
 
             <ImageButton
-                android:id="@+id/idNext"
+                android:id="@+id/ibNext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
