@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.anderson.task.R
 import com.anderson.task.databinding.FragmentFormTaskBinding
 import com.anderson.task.helper.FirebaseHelper
@@ -15,6 +16,8 @@ import com.anderson.task.model.Task
 
 
 class FormTaskFragment : Fragment() {
+
+    private val args: FormTaskFragmentArgs by navArgs()
 
     private var _binding: FragmentFormTaskBinding? = null
     private val binding get() = _binding!!
@@ -37,6 +40,45 @@ class FormTaskFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initListeners()
+
+        getArgs()
+    }
+    // tratamento do botão editar
+    private fun getArgs(){
+        args.task.let {
+            if (it != null){
+                task = it
+
+                configTask()
+            }
+        }
+    }
+
+    //carregamento dos dados para editar
+    private fun configTask(){
+        newTask = false
+        statusTask = task.status
+        binding.textToolbar.text = "Editando Tarefa"
+
+        //preenche o campo da descrição
+        binding.edtDescription.setText(task.description)
+        setStatus()
+    }
+    //faz a troca do status
+    private fun setStatus(){
+        binding.radioGroup.check(
+            when(task.status){
+                0 ->{
+                    R.id.rbTodo
+                }
+                1 ->{
+                    R.id.rbDoing
+                }
+                else ->{
+                    R.id.rbDone
+                }
+            }
+        )
     }
 
     //Caputurar o click do botão Salvar
