@@ -52,7 +52,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_description_task_form_fragment"
+                android:text="@string/text_description_form_task_fragment"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/bg_edit"
-                android:hint="Criar nova Tarefa"
+                android:hint="@string/text_description_empty_form_task_fragment"
                 android:padding="14dp"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/text_status_form_fragment"
+                android:text="@string/text_status_form_task_fragment"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edtDescription" />
@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:text="A Fazer"
+                    android:text="@string/status_task_todo"
                     android:buttonTint="@color/white"
                     android:textColor="@color/white" />
 
@@ -104,7 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="A Fazendo"
+                    android:text="@string/status_task_doing"
                     android:buttonTint="@color/white"
                     android:textColor="@color/white" />
 
@@ -113,7 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="A Feitas"
+                    android:text="@string/status_task_done"
                     android:buttonTint="@color/white"
                     android:textColor="@color/white" />
 
@@ -125,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_button"
-                android:text="@string/text_btn_save_task_form_fragment"
+                android:text="@string/text_btn_save_task_form_task_fragment"
                 android:textAllCaps="false"
                 android:textColor="@color/color_default"
                 app:backgroundTint="@null"

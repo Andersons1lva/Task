@@ -2,19 +2,28 @@
     <string name="app_name">Task</string>
     <!-- Generics -->
     <string name="text_email">E-mail</string>
+    <string name="text_email_hint">email@email.com</string>
     <string name="text_password">Senha</string>
+    <string name="text_password_hint">******</string>
     <string name="text_criar_conta">Criar conta</string>
     <string name="error_generic">Ocorreu um erro, por favor tente novamente mais tarde.</string>
 
     <!-- Login Fragment -->
     <string name="text_btn_login_fragment">Login</string>
     <string name="text_recuperar_conta_login_fragment">Recuperar conta</string>
+    <string name="text_password_empty_login_fragment">Informe sua senha.</string>
+    <string name="text_email_empty_login_fragment">Informe seu e-mail.</string>
 
     <!-- Register Fragment -->
     <string name="text_btn_criar_conta_register_fregment">Criar conta</string>
+    <string name="text_password_empty_register_fragment">Informe sua senha.</string>
+    <string name="text_email_empty_register_fragment">Informe seu e-mail.</string>
 
     <!-- Recover Account Fragment -->
+    <string name="text_toolbar_recover_account_fragment">Recuperar conta</string>
     <string name="text_btn_enviar_recover_account">Enviar</string>
+    <string name="text_email_empty_recover_account_fragment">Informe seu e-mail.</string>
+    <string name="text_email_send_sucess_recover_account_fragment">Link enviado ao seu o seu e-mail informado</string>
 
     <!-- Erros Firebase Authentication -->
     <string name="account_not_registered_register_fragment">Não há registro de usuário correspondente a este identificador. O usuário pode ter sido excluído</string>
@@ -23,20 +32,34 @@
     <string name="email_in_use_register_fragment">O endereço de e-mail já está sendo usado por outra conta</string>
     <string name="strong_password_register_fragment">A senha fornecida é inválida. [ A senha deve ter pelo menos 6 caracteres ]</string>
 
-    <!--Form Task Fragment-->
-    <string name="text_title_form_task_fragment">Nova tarefa </string>
-    <string name="text_description_task_form_fragment">Descrição</string>
-    <string name="text_status_form_fragment">Status</string>
-    <string name="text_btn_save_task_form_fragment">Salvar</string>
+    <!--    Form Task Fragment-->
+    <string name="text_title_form_task_fragment">Nova tarefa</string>
+    <string name="text_description_form_task_fragment">Descrição</string>
+    <string name="text_description_hint_form_task_fragment">Criar nova tela de login</string>
+    <string name="text_editing_task_form_task_fragment">Editando tarefa…</string>
+    <string name="text_status_form_task_fragment">Status</string>
+    <string name="text_btn_save_task_form_task_fragment">Salvar</string>
+    <string name="text_description_empty_form_task_fragment">Informe uma descrição para a tarefa.</string>
+    <string name="text_save_task_sucess_form_task_fragment">Tarefa salva com sucesso.</string>
+    <string name="text_update_task_sucess_form_task_fragment">Tarefa atualizada com sucesso.</string>
+    <string name="text_erro_save_task_form_task_fragment">Erro ao salvar a tarefa.</string>
+
+    <!--    Status Task-->
+    <string name="status_task_todo">A Fazer</string>
+    <string name="status_task_doing">Fazendo</string>
+    <string name="status_task_done">Feitas</string>
 
     <!--TodoFragment-->
     <string name="text_task_list_empty_todo_fragment">Nenhuma tarefa cadastrada.</string>
+    <string name="text_task_info_empty_todo_fragment">Carregando tarefas....</string>
     <!--DoingFragment-->
     <string name="text_task_list_empty_doing_fragment">Nenhuma tarefa cadastrada.</string>
     <!--DoneFragment-->
     <string name="text_task_list_empty_done_fragment">Nenhuma tarefa cadastrada.</string>
 
 
-
+    <!-- BottomSheet -->
+    <string name="text_title_bottom_sheet">Atenção</string>
+    <string name="text_botton_bottom_sheet">OK</string>
 
 </resources>

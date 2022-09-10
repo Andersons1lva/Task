@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:layout_gravity="center_horizontal"
-                    android:text="Recuperar conta" />
+                    android:text="@string/text_toolbar_recover_account_fragment" />
 
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
@@ -59,7 +59,7 @@
                 android:layout_marginTop="8dp"
                 android:inputType="textEmailAddress"
                 android:background="@drawable/bg_edit"
-                android:hint="email@exemplo.com"
+                android:hint="@string/text_email_hint"
                 android:padding="14dp"
                 android:textSize="14sp" />
 

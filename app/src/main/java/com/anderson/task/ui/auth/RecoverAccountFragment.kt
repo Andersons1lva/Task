@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.anderson.task.R
 import com.anderson.task.databinding.FragmentRecoverAccountBinding
 import com.anderson.task.helper.BaseFragment
 import com.anderson.task.helper.FirebaseHelper
 import com.anderson.task.helper.initToolBar
+import com.anderson.task.helper.showBottomSheet
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -66,7 +68,9 @@ class RecoverAccountFragment : BaseFragment() {
             recoverAccountUser(email)
 
         } else {
-            Toast.makeText(requireContext(), "Informe seu email", Toast.LENGTH_SHORT).show()
+            showBottomSheet(
+                message = R.string.text_email_empty_recover_account_fragment
+            )
         }
     }
 
@@ -76,15 +80,15 @@ class RecoverAccountFragment : BaseFragment() {
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(requireContext(), "Link enviado ao seu o seu e-mail informado ", Toast.LENGTH_SHORT).show()
+                    showBottomSheet(
+                        message = R.string.text_email_send_sucess_recover_account_fragment
+                    )
                     //se não mostre a progressbar
                 }else{
                     //retorna a mensagem de erro
-                    Toast.makeText(
-                        requireContext(),
-                        FirebaseHelper.validError(task.exception?.message ?: ""),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    showBottomSheet(
+                      message =  FirebaseHelper.validError(task.exception?.message ?: "")
+                    )
                 }
                 binding.progressBar.isVisible = false
             }

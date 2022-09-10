@@ -14,6 +14,7 @@ import com.anderson.task.databinding.FragmentFormTaskBinding
 import com.anderson.task.helper.BaseFragment
 import com.anderson.task.helper.FirebaseHelper
 import com.anderson.task.helper.initToolBar
+import com.anderson.task.helper.showBottomSheet
 import com.anderson.task.model.Task
 
 
@@ -62,7 +63,7 @@ class FormTaskFragment : BaseFragment() {
     private fun configTask(){
         newTask = false
         statusTask = task.status
-        binding.textToolbar.text = "Editando Tarefa"
+        binding.textToolbar.text = getString(R.string.text_editing_task_form_task_fragment)
 
         //preenche o campo da descrição
         binding.edtDescription.setText(task.description)
@@ -115,11 +116,7 @@ class FormTaskFragment : BaseFragment() {
             saveTask()
 
         } else {
-            Toast.makeText(
-                requireContext(),
-                "Informe uma descrição para a tarefa.",
-                Toast.LENGTH_SHORT
-            ).show()
+            showBottomSheet(message = R.string.text_description_empty_form_task_fragment)
         }
     }
 
@@ -135,26 +132,16 @@ class FormTaskFragment : BaseFragment() {
                 if (task.isSuccessful) {
                     if (newTask) {//Nova tarefa
                         findNavController().popBackStack()
-                        Toast.makeText(
-                            requireContext(),
-                            "Tarefa salva com sucesso.",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        showBottomSheet(message = R.string.text_save_task_sucess_form_task_fragment)
                     } else {// editando tarefa
                         binding.progressBar.isVisible = false
-                        Toast.makeText(
-                            requireContext(),
-                            "Tarefa atualizada com sucesso.",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        showBottomSheet(message = R.string.text_update_task_sucess_form_task_fragment)
                     }
                 } else {
-                    Toast.makeText(requireContext(), "Erro ao salvar tarefa.", Toast.LENGTH_SHORT)
-                        .show()
+                    showBottomSheet(message = R.string.text_erro_save_task_form_task_fragment)
                 }
             }.addOnFailureListener {
-                Toast.makeText(requireContext(), "Erro ao salvar tarefa.", Toast.LENGTH_SHORT)
-                    .show()
+                showBottomSheet(message = R.string.text_erro_save_task_form_task_fragment)
             }
     }
 

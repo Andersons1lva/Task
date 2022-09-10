@@ -9,13 +9,13 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity):
 
     private val fragmentList: MutableList<Fragment> = ArrayList()
 
-    private val titleList: MutableList<String> = ArrayList()
+    private val titleList: MutableList<Int> = ArrayList()
 
-    fun getTitle(position: Int):String {
+    fun getTitle(position: Int):Int {
         return titleList[position]
     }
 
-    fun addFragment(fragment: Fragment, title: String) {
+    fun addFragment(fragment: Fragment, title: Int) {
         fragmentList.add(fragment)
         titleList.add(title)
     }

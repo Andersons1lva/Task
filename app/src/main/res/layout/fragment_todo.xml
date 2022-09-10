@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:layout_marginTop="8dp"
-            android:text="Carregando tarefas..."
+            android:text="@string/text_task_info_empty_todo_fragment"
             android:textAlignment="center" />
 
     </LinearLayout>
