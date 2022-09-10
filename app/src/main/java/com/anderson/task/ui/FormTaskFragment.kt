@@ -11,11 +11,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.anderson.task.R
 import com.anderson.task.databinding.FragmentFormTaskBinding
+import com.anderson.task.helper.BaseFragment
 import com.anderson.task.helper.FirebaseHelper
 import com.anderson.task.model.Task
 
 
-class FormTaskFragment : Fragment() {
+class FormTaskFragment : BaseFragment() {
 
     private val args: FormTaskFragmentArgs by navArgs()
 
@@ -98,6 +99,9 @@ class FormTaskFragment : Fragment() {
     private fun validateData() {
         val description = binding.edtDescription.text.toString().trim()
         if (description.isNotEmpty()) {
+            //oculta o teclado
+            hideKeyboard()
+
             // exibir a progressbar
             binding.progressBar.isVisible = true
 

@@ -8,13 +8,14 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.anderson.task.databinding.FragmentRecoverAccountBinding
+import com.anderson.task.helper.BaseFragment
 import com.anderson.task.helper.FirebaseHelper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
-class RecoverAccountFragment : Fragment() {
+class RecoverAccountFragment : BaseFragment() {
 
     private var _binding: FragmentRecoverAccountBinding? = null
     private val binding get() = _binding!!
@@ -51,6 +52,9 @@ class RecoverAccountFragment : Fragment() {
 
         // verificação se foi digitado algo no campo
         if (email.isNotEmpty()) {
+
+            //oculta o teclado
+            hideKeyboard()
 
             // após verificação exibir progressBar
             binding.progressBar.isVisible = true

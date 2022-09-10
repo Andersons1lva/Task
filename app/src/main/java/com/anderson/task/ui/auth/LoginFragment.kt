@@ -12,12 +12,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.anderson.task.R
 import com.anderson.task.databinding.FragmentLoginBinding
+import com.anderson.task.helper.BaseFragment
 import com.anderson.task.helper.FirebaseHelper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -64,6 +65,9 @@ class LoginFragment : Fragment() {
         // verificação se foi digitado algo no campo
         if (email.isNotEmpty()) {
             if (password.isNotEmpty()) {
+
+                //oculta o teclado
+                hideKeyboard()
 
                 // após verificação exibir progressBar
                 binding.progressBar.isVisible = true
