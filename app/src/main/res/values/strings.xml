@@ -29,6 +29,14 @@
     <string name="text_status_form_fragment">Status</string>
     <string name="text_btn_save_task_form_fragment">Salvar</string>
 
+    <!--TodoFragment-->
+    <string name="text_task_list_empty_todo_fragment">Nenhuma tarefa cadastrada.</string>
+    <!--DoingFragment-->
+    <string name="text_task_list_empty_doing_fragment">Nenhuma tarefa cadastrada.</string>
+    <!--DoneFragment-->
+    <string name="text_task_list_empty_done_fragment">Nenhuma tarefa cadastrada.</string>
+
+
 
 
 </resources>

@@ -53,19 +53,19 @@ class DoingFragment : Fragment() {
             .child(FirebaseHelper.getIdUser() ?: "")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()){
+                    if (snapshot.exists()) {
                         taskList.clear()
                         // se houver tarefas no firebase percorre o banco de de dados
-                        for (snap in snapshot.children){
+                        for (snap in snapshot.children) {
                             val task = snap.getValue(Task::class.java) as Task
                             if (task.status == 1) taskList.add(task)
                         }
-                        binding.textInfo.text = ""
+
                         taskList.reverse()
                         initAdapter()
-                    }else{
-                        binding.textInfo.text = "Nenhuma tarefa cadastrada."
                     }
+
+                    tasksEmpty()
                     binding.progressBar.isVisible = false
                 }
 
@@ -74,6 +74,15 @@ class DoingFragment : Fragment() {
                 }
 
             })
+    }
+
+    // exibe mensagem quando não houver nenhuma tarefa cadastrada na tela
+    private fun tasksEmpty(){
+        binding.textInfo.text = if (taskList.isEmpty()){
+            getString(R.string.text_task_list_empty_doing_fragment)
+        }else{
+            ""
+        }
     }
 
     private fun initAdapter(){

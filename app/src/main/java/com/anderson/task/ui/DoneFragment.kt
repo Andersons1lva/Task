@@ -59,12 +59,12 @@ class DoneFragment : Fragment() {
                             val task = snap.getValue(Task::class.java) as Task
                             if (task.status == 2) taskList.add(task)
                         }
-                        binding.textInfo.text = ""
+
                         taskList.reverse()
                         initAdapter()
-                    }else{
-                        binding.textInfo.text = "Nenhuma tarefa cadastrada."
                     }
+
+                    tasksEmpty()
                     binding.progressBar.isVisible = false
                 }
 
@@ -73,6 +73,15 @@ class DoneFragment : Fragment() {
                 }
 
             })
+    }
+
+    // exibe mensagem quando não houver nenhuma tarefa cadastrada na tela
+    private fun tasksEmpty(){
+        binding.textInfo.text = if (taskList.isEmpty()){
+            getString(R.string.text_task_list_empty_done_fragment)
+        }else{
+            ""
+        }
     }
 
     private fun initAdapter(){

@@ -67,14 +67,16 @@ class TodoFragment : Fragment() {
                         // se houver tarefas no firebase percorre o banco de de dados
                         for (snap in snapshot.children){
                             val task = snap.getValue(Task::class.java) as Task
+
                             if (task.status == 0) taskList.add(task)
                         }
-                        binding.textInfo.text = ""
+
                         taskList.reverse()
                         initAdapter()
-                    }else{
-                        binding.textInfo.text = "Nenhuma tarefa cadastrada."
                     }
+
+                    tasksEmpty()
+
                     binding.progressBar.isVisible = false
                 }
 
@@ -83,6 +85,15 @@ class TodoFragment : Fragment() {
                 }
 
             })
+    }
+
+    // exibe mensagem quando não houver nenhuma tarefa cadastrada na tela
+    private fun tasksEmpty(){
+        binding.textInfo.text = if (taskList.isEmpty()){
+            getString(R.string.text_task_list_empty_todo_fragment)
+        }else{
+            ""
+        }
     }
 
     private fun initAdapter(){
