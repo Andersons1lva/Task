@@ -13,6 +13,7 @@ import com.anderson.task.R
 import com.anderson.task.databinding.FragmentFormTaskBinding
 import com.anderson.task.helper.BaseFragment
 import com.anderson.task.helper.FirebaseHelper
+import com.anderson.task.helper.initToolBar
 import com.anderson.task.model.Task
 
 
@@ -39,6 +40,8 @@ class FormTaskFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initToolBar(binding.toolbar)
 
         initListeners()
 

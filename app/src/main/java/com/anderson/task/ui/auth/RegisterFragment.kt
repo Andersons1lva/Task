@@ -13,6 +13,7 @@ import com.anderson.task.R
 import com.anderson.task.databinding.FragmentRegisterBinding
 import com.anderson.task.helper.BaseFragment
 import com.anderson.task.helper.FirebaseHelper
+import com.anderson.task.helper.initToolBar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -36,6 +37,8 @@ class RegisterFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initToolBar(binding.toolbar)
 
         // Initialize Firebase Auth
         auth = Firebase.auth

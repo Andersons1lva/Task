@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.anderson.task.databinding.FragmentRecoverAccountBinding
 import com.anderson.task.helper.BaseFragment
 import com.anderson.task.helper.FirebaseHelper
+import com.anderson.task.helper.initToolBar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -33,6 +34,8 @@ class RecoverAccountFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initToolBar(binding.toolbar)
 
         // Initialize Firebase Auth
         auth = Firebase.auth
