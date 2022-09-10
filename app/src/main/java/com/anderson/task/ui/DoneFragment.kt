@@ -90,8 +90,43 @@ class DoneFragment : Fragment() {
             TaskAdapter.SELECT_REMOVE -> {
                 deleteTask(task)
             }
+            TaskAdapter.SELECT_EDIT -> {
+                val action = HomeFragmentDirections
+                    .actionHomeFragmentToFormTaskFragment(task)
+                findNavController().navigate(action)
+            }
+            TaskAdapter.SELECT_BACK -> {
+                task.status = 1
+                updateTask(task)
+            }
         }
     }
+
+    // Tratamento do status pelas setas
+    private fun updateTask(task: Task) {
+        FirebaseHelper
+            .getDataBase()
+            .child("task")
+            .child(FirebaseHelper.getIdUser() ?: "")
+            .child(task.id)
+            .setValue(task)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Tarefa atualizada com sucesso.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Toast.makeText(requireContext(), "Erro ao salvar tarefa.", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }.addOnFailureListener {
+                Toast.makeText(requireContext(), "Erro ao salvar tarefa.", Toast.LENGTH_SHORT)
+                    .show()
+            }
+    }
+
     //deleta tarefa do bonco de dado
     private fun deleteTask(task: Task){
         FirebaseHelper
